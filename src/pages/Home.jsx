@@ -10,12 +10,13 @@ export const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        (async () => {
-            const pizzas = await axios.get("https://63178e5682797be77f003077.mockapi.io/items");
-            setPizzas(pizzas.data);
-            setIsLoading(false)
-        })();
-    })
+        axios.get("https://63178e5682797be77f003077.mockapi.io/items")
+            .then(response => {
+                setPizzas(response.data);
+                setIsLoading(false);
+            });
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <div className="container">

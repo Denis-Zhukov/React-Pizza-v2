@@ -1,10 +1,12 @@
 import {Header} from "./components/Header";
-import {Routes, Route,} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
+
+import {Home} from "./pages/Home";
+import {Cart} from "./pages/Cart";
+import {NotFound} from "./pages/NotFound";
 
 import './App.css';
 import "./scss/app.scss"
-import {Home} from "./pages/Home";
-import {Cart} from "./pages/Cart";
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/cart" element={<Cart/>}/>
+                    <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </div>
         </div>
